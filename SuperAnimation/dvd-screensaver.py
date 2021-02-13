@@ -1,6 +1,6 @@
 #!/bin/python3
-from libcolor import Color
-from tkinter import Tk, Canvas, mainloop
+from libcolor import Color, bw2color
+from tkinter import Tk, Canvas, mainloop, PhotoImage
 from animagick import rect_mid
 
 # set window
@@ -12,16 +12,19 @@ Cnv.pack()
 
 # Draw initial stuff
 color_slow = Color(106, 255, 0)     # green
-box = Cnv.create_rectangle(0, 0, 50, 50, fill=color_slow.to_hex())
 
-vx = 5
-vy = 3
+vx = 3
+vy = 5
+colors = ((255, 255, 255), (255, 255, 0), (255, 0, 255), (0, 255, 255), (255, 0, 0), (0, 255, 0), (0, 0, 255))
+x1, y1 = 0, 0
 
 
 def animate():
-    global vx, vy
+    global vx, vy, Cnv, x1, y1
+    dvd_img = PhotoImage("./assets/tmp.png")
+    x2, y2 = x1 + 201, y1 + 92
+    box = Cnv.create_image(x1, y1, x2, y2)
 
-    x1, y1, x2, y2 = Cnv.coords(box)
     if x1 < 0:
         vx = -vx
     if x2 > W:

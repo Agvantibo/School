@@ -1,7 +1,6 @@
 #!/bin/python3
 from libcolor import Color
 from tkinter import Tk, Canvas, mainloop
-from animagick import rect_mid
 
 # set window
 root = Tk()
@@ -22,6 +21,7 @@ def animate():
     global vx, vy
 
     x1, y1, x2, y2 = Cnv.coords(box)
+
     if x1 < 0:
         vx = -vx
     if x2 > W:
