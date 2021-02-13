@@ -99,7 +99,9 @@ def rainbow():
 def bw2color(image, color_tuple):
     from PIL import Image
     import numpy as np
+    from time import sleep
 
+    image = Image.open(image)
     image = image.convert('RGBA')
 
     data = np.array(image)
@@ -109,4 +111,5 @@ def bw2color(image, color_tuple):
     data[..., :-1][lit_areas.T] = color_tuple
 
     image2 = Image.fromarray(data)
-    image2.save("./assets/tmp.png")
+    image2.save("tmp.png")
+    print("recoloring done")
