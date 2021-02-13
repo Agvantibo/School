@@ -94,3 +94,22 @@ def rainbow():
     for i in range(977, 1188):
         yield color.to_hex()
         color.r += 1
+
+
+def bw2color(image, color_tuple):
+    from PIL import Image
+    import numpy as np
+    from time import sleep
+
+    image = Image.open(image)
+    image = image.convert('RGBA')
+
+    data = np.array(image)
+    red, green, blue, alpha = data.T
+
+    lit_areas = (red >= 50) & (blue >= 50) & (green >= 50)
+    data[..., :-1][lit_areas.T] = color_tuple
+
+    image2 = Image.fromarray(data)
+    image2.save("tmp.png")
+    print("recoloring done")
