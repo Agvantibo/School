@@ -20,7 +20,7 @@ x1, y1 = 0, 0
 
 def animate():
     global vx, vy, Cnv, x1, y1
-    dvd_img = PhotoImage(file="tmp.png")
+    dvd_img = PhotoImage(file="assets/tmp.png")
     x2, y2 = x1 + 150, y1 + 200
     box = Cnv.create_rectangle(x1, y1, x2, y2, fill="white")
     print('recreation succeeded with values', x1, y1)
