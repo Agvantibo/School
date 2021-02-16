@@ -22,8 +22,8 @@ def animate():
     global vx, vy, Cnv, x1, y1
     dvd_img = PhotoImage(file="../assets/tmp.png")
     x2, y2 = x1 + 201, y1 + 92
-#    box = Cnv.create_image(x1, y1, image=dvd_img, anchor='nw')
-    box = Cnv.create_rectangle(x1, y1, x2, y2, fill="white")
+    cover_up = Cnv.create_rectangle(x1 - 40, y1 - 40, x2 + 40, y2 + 40, fill="black")
+    box = Cnv.create_image(x1, y1, image=dvd_img, anchor='nw')
     print('recreation succeeded with values', x1, y1)
     if x1 < 0:
         vx = -vx
