@@ -111,5 +111,5 @@ def bw2color(image, color_tuple):
     data[..., :-1][lit_areas.T] = color_tuple
 
     image2 = Image.fromarray(data)
-    image2.save("tmp.png")
+    image2.save("./assets/tmp.png")
     print("recoloring done")
