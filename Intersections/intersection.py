@@ -1,3 +1,4 @@
+#!/bin/echo This is not meant to be run
 from math import *
 
 
